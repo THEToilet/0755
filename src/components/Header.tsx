@@ -1,9 +1,8 @@
-import Logo from './../../public/0755.gif'
 
 const Header = () => {
     return (
         <div className="header">
-            <img src={Logo} alt="logo"/>
+            <img src={process.env.PUBLIC_URL + '0755.gif'} alt="logo"/>
         </div>
     );
 };
