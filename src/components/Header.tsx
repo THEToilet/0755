@@ -1,7 +1,7 @@
 const Header = () => {
     return (
         <div className="header">
-            <img src="../../public/0755.gif"/>
+            <img src="../../public/0755.gif" alt="logo"/>
         </div>
     );
 };
