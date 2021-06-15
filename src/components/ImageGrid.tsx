@@ -6,11 +6,12 @@ type ImageGridPropsType = {
 
 const ImageGrid = ({setImageList}: ImageGridPropsType) => {
     let list = [];
-    for(let i in setImageList){
+    for (let i in setImageList) {
         list.push(<li>{setImageList[i]}</li>)
     }
     return (
         <div>
+            <Image/>
             {list}
         </div>
     );

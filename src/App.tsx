@@ -4,7 +4,7 @@ import TopPage from "./pages/TopPage";
 function App() {
   return (
     <div className="App">
-      <TopPage/>
+        <TopPage setOperationName={"dfs"}/>
     </div>
   );
 }
