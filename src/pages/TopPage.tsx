@@ -1,9 +1,15 @@
 import Header from "../components/Header";
 
-const TopPage = () => {
+type TopPagePropsType = {
+    setOperationName: string;
+}
+
+const TopPage = ({setOperationName}: TopPagePropsType) => {
     return (
-        <div>
+        <div className="top-page">
             <Header/>
+            <div className="operation-name">{setOperationName}</div>
+            
         </div>
     );
 };
