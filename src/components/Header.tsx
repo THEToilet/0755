@@ -5,7 +5,7 @@ const HeaderDiv = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 78px;
-  width: 1440px;
+  //width: 1440px;
 `;
 
 const HeaderBack = styled.div`
@@ -13,8 +13,8 @@ const HeaderBack = styled.div`
   background-color: #ffffff;
   display: flex;
   height: 70px;
-  min-width: 1440px;
-  padding: 0 646px;
+  min-width: 100%;
+  padding: 0 50%;
 `;
 
 const Logo = styled.img`
@@ -28,7 +28,7 @@ const HeaderBottom = styled.div`
   background-color: #2a2e2f;
   height: 8px;
   mix-blend-mode: normal;
-  width: 1440px;
+  width: 100%;
 `;
 const Header = () => {
     return (

@@ -1,13 +1,18 @@
 import Image from "./Image";
+import styled from "styled-components";
 
 type ImageGridPropsType = {
     setImageList: Array<string>;
 }
 
+const ImageLi = styled.li`
+  list-style: none;
+`;
+
 const ImageGrid = ({setImageList}: ImageGridPropsType) => {
     let list = [];
     for (let i in setImageList) {
-        list.push(<li><Image setImageSource={setImageList[i]}/></li>)
+        list.push(<ImageLi><Image setImageSource={setImageList[i]}/></ImageLi>)
     }
     return (
         <div>

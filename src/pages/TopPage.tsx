@@ -7,22 +7,27 @@ type TopPagePropsType = {
     setOperationName: string;
 }
 
-const OperationName = styled.h2`
+const OperationName = styled.div`
   letter-spacing: 0;
   min-height: 21px;
   min-width: 143px;
   mix-blend-mode: normal;
-  text-align: center;
+  text-align: left;
   width: 143px;
   @import url("https://fonts.googleapis.com/css?family=Ubuntu:400|Roboto:400");
+`;
+
+const OperationsBar = styled.div`
 `;
 
 const TopPage = ({setOperationName}: TopPagePropsType) => {
     return (
         <div className="top-page">
             <Header/>
-            <OperationName>{setOperationName}</OperationName>
-            <Operations/>
+            <OperationsBar>
+                <OperationName>{setOperationName}</OperationName>
+                <Operations/>
+            </OperationsBar>
             <ImageGrid setImageList={["fsdf", "dfsa"]}></ImageGrid>
         </div>
     );
