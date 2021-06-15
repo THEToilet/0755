@@ -1,37 +1,5 @@
-/* header */
 
-.header {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    min-height: 78px;
-    width: 1440px;
-}
-
-.header .logo {
-    height: 52px;
-    mix-blend-mode: normal;
-    object-fit: cover;
-    width: 144px;
-}
-
-.header .header-back {
-    align-items: center;
-    background-color: #ffffff;
-    display: flex;
-    height: 70px;
-    min-width: 1440px;
-    padding: 0 646px;
-}
-
-.header .header-bottom {
-    background-color: #2a2e2f;
-    height: 8px;
-    mix-blend-mode: normal;
-    width: 1440px;
-}
-
-/* App */
+/* App
 .App {
     align-items: center;
     background-color: #ffffff;
@@ -44,3 +12,4 @@
     width: 1440px;
 }
 
+*/
