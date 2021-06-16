@@ -32,10 +32,13 @@ const ImageUl = styled.ul`
   display: flex;
   flex-wrap: wrap;
   //align-content: space-around;
-  margin: 5px auto;
+  margin: 5px -20px;
+  /*
   @media print, screen and (min-width: 767px) {
     margin: 0 -20px;
   }
+  
+   */
 `;
 
 const ImageGrid = ({setImageList}: ImageGridPropsType) => {
