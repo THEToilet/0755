@@ -7,8 +7,10 @@ type ImagePropsType = {
 const ImageBox = styled.input`
   //mix-blend-mode: normal;
   object-fit: cover;
-  height: 263px;
-  width: 263px;
+  //height: 263px;
+  //width: 263px;
+  height:100px ;
+  width: 100px;
   max-width: 100%;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   &:hover{

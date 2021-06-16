@@ -3,8 +3,10 @@ import styled from "styled-components";
 const HeaderContainer = styled.div`
   //max-width: 1440px;
   width: 100%;
+ // position: fixed;
 //  padding: 0 15px;
   //  margin: 0 15px;
+  z-index: 1;
 `;
 
 const HeaderBack = styled.div`
@@ -20,9 +22,12 @@ const Logo = styled.img`
   mix-blend-mode: normal;
   margin: 0 auto;
   object-fit: contain;
-  width: 144px;
+  width: 120px;
   display: block;
   z-index: 2;
+  &:hover{
+    opacity: 0.4;
+  }
 `;
 
 const HeaderBottom = styled.div`
