@@ -1,43 +1,45 @@
 import styled from "styled-components";
 
-const HeaderDiv = styled.div`
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  min-height: 78px;
-  //width: 1440px;
+const HeaderContainer = styled.div`
+  max-width: 1440px;
+  width: 100%;
+//  padding: 0 15px;
+  //  margin: 0 15px;
 `;
 
 const HeaderBack = styled.div`
-  align-items: center;
   background-color: #ffffff;
-  display: flex;
-  height: 70px;
-  min-width: 100%;
-  padding: 0 50%;
+  max-width: 1440px;
+  //height: 70px;
+  width: 100%;
+  //padding: 0 15px;
+  z-index: 1;
 `;
 
 const Logo = styled.img`
-  height: 52px;
   mix-blend-mode: normal;
-  object-fit: cover;
+  margin: 0 auto;
+  object-fit: contain;
   width: 144px;
+  display: block;
+  z-index: 2;
 `;
 
 const HeaderBottom = styled.div`
   background-color: #2a2e2f;
+  max-width: 1440px;
   height: 8px;
   mix-blend-mode: normal;
   width: 100%;
 `;
+
 const Header = () => {
     return (
-        <HeaderDiv>
-            <HeaderBack>
-                <Logo className="logo" src={process.env.PUBLIC_URL + '0755.gif'} alt="logo"/>
-            </HeaderBack>
+        <HeaderContainer>
+            <Logo className="logo" src={process.env.PUBLIC_URL + '0755.gif'} alt="logo"/>
+            <HeaderBack/>
             <HeaderBottom/>
-        </HeaderDiv>
+        </HeaderContainer>
     );
 };
 

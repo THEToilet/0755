@@ -14,6 +14,7 @@ const OperationName = styled.div`
   mix-blend-mode: normal;
   text-align: left;
   width: 143px;
+  float: left;
   @import url("https://fonts.googleapis.com/css?family=Ubuntu:400|Roboto:400");
 `;
 
@@ -28,7 +29,7 @@ const TopPage = ({setOperationName}: TopPagePropsType) => {
                 <OperationName>{setOperationName}</OperationName>
                 <Operations/>
             </OperationsBar>
-            <ImageGrid setImageList={["fsdf", "dfsa"]}></ImageGrid>
+            <ImageGrid setImageList={["bg.jpg", "ch.png", "P.jpg", "Den3Logo.png","P.jpg","bg.jpg","ch.png","ch.png","bg.jpg","P.jpg","Den3Logo.png","P.jpg","ch.png","bg.jpg","P.jpg"]}></ImageGrid>
         </div>
     );
 };

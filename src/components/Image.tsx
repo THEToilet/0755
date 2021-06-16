@@ -5,20 +5,21 @@ type ImagePropsType = {
 }
 
 const ImageBox = styled.img`
-  height: 263px;
-  mix-blend-mode: normal;
+  //mix-blend-mode: normal;
   object-fit: cover;
+  height: 263px;
   width: 263px;
 `;
 
 const Image = ({setImageSource}: ImagePropsType) => {
+    const name = process.env.PUBLIC_URL + "images/" + setImageSource;
     return (
  /*       <div className="image">
             <div className="image-back"/>
             <img className="image-source" src={setImageSource} alt={setImageSource}/>
         </div>
   */
-        <ImageBox src={process.env.PUBLIC_URL + 'images/search_black_24dp.svg'} alt="unko"/>
+        <ImageBox src={name} alt="unko"/>
             //{setImageSource}
         //</ImageBox>
     );
