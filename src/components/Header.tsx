@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const HeaderContainer = styled.div`
-  max-width: 1440px;
+  //max-width: 1440px;
   width: 100%;
 //  padding: 0 15px;
   //  margin: 0 15px;
@@ -9,7 +9,7 @@ const HeaderContainer = styled.div`
 
 const HeaderBack = styled.div`
   background-color: #ffffff;
-  max-width: 1440px;
+  //max-width: 1440px;
   //height: 70px;
   width: 100%;
   //padding: 0 15px;
@@ -27,7 +27,7 @@ const Logo = styled.img`
 
 const HeaderBottom = styled.div`
   background-color: #2a2e2f;
-  max-width: 1440px;
+  //max-width: 1440px;
   height: 8px;
   mix-blend-mode: normal;
   width: 100%;
