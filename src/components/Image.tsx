@@ -9,6 +9,7 @@ const ImageBox = styled.img`
   object-fit: cover;
   height: 263px;
   width: 263px;
+  max-width: 100%;
 `;
 
 const Image = ({setImageSource}: ImagePropsType) => {
