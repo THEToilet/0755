@@ -10,9 +10,7 @@ function App() {
                 <Route exact path="/">
                     <TopPage setOperationName={"SortByFavorites"}/>
                 </Route>
-                <Route exact path="/image/:id">
-                    <ImageViewPage/>
-                </Route>
+                <Route exact path="/image/:id" component={ImageViewPage}/>
             </Switch>
         </BrowserRouter>
     );

@@ -7,6 +7,8 @@ type TopPagePropsType = {
 }
 
 const TopPage = ({setOperationName}: TopPagePropsType) => {
+    //document.body.style.backgroundColor = "#e5e5e5";
+    document.body.style.backgroundColor = "#ffffff";
     return (
         <div className="top-page">
             <Header/>

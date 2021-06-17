@@ -1,7 +1,37 @@
-const ImageViewContainer = () =>{
+import styled from "styled-components";
+import image from "../components/ch.png";
+import {useParams} from "react-router-dom";
+
+const DetailImageBox = styled.img`
+  height: 100%;
+  width: 60%;
+  margin: 0 auto;
+  max-width: 100%;
+  object-fit: contain; //全部入れる
+  padding: 0 100px;
+`;
+
+/*
+const DetailImage = styled.img`
+`;
+*/
+
+
+const ImageViewContainer = () => {
+    //const {params} = this.props.match
+    const {id} = useParams<{ id: string }>();
+    //const name = process.env.PUBLIC_URL + `images/` + id;
+    const name = window.location.origin + `/images/` + id;
+    console.log(name)
+    console.log(image)
+    console.log(id)
     return (
-        <div>
-        </div>
+        <DetailImageBox src={name} alt="unko"/>
+        /*
+//            <DetailImage src="./ch.png" alt="unko"/>
+        //</ImageBox>
+
+         */
     );
 };
 
