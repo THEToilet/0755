@@ -16,7 +16,7 @@ const InformationContainer = styled.div`
   padding: 30px 30px;
   margin: 0 auto;
   position: absolute; //絶対位置
-  bottom: 0;  //下に固定
+  bottom: -200px;  //下に固定
   z-index: 4;
   &:hover{
     height: 500px;

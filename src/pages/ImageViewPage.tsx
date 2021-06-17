@@ -1,6 +1,7 @@
 import ImageViewContainer from "../components/ImageContainer";
 import InformationBar from "../components/InformationBar";
 import styled from "styled-components";
+import {Link} from "react-router-dom"
 
 const ImageViewPageContainer = styled.div`
   //  background-color: #ffffff;
@@ -21,6 +22,7 @@ const ArrowImage = styled.img`
   &:hover {
     opacity: 0.6;
   }
+
   z-index: 5;
 `;
 
@@ -31,11 +33,12 @@ const Cancel = styled.img`
   //text-align: left;
   display: block;
   margin-left: auto;
-  
-  
+
+
   &:hover {
     opacity: 0.6;
   }
+
   z-index: 5;
 `;
 
@@ -46,7 +49,9 @@ const ImageViewPage = () => {
     const cancelButton = window.location.origin + "/images/close_white_24dp.svg";
     return (
         <ImageViewPageContainer>
-            <Cancel src={cancelButton} alt="cancel"/>
+            <Link to="/">
+                <Cancel src={cancelButton} alt="cancel"/>
+            </Link>
             <CenterContainer>
                 <ArrowImage src={img} alt="right"/>
                 <ImageViewContainer/>
