@@ -3,12 +3,13 @@ import image from "../components/ch.png";
 import {useParams} from "react-router-dom";
 
 const DetailImageBox = styled.img`
-  height: 100%;
-  width: 60%;
+  height: 600px;
+  width: 70%;
   margin: 0 auto;
-  max-width: 100%;
+  padding-top: 40px;
+  //max-width: 100%;
   object-fit: contain; //全部入れる
-  padding: 0 100px;
+  //padding: 0 100px;
 `;
 
 /*
