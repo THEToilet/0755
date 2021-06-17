@@ -5,7 +5,7 @@ const OperationsContainer = styled.div`
   //padding-right: 30px;
   //padding-left: 30px;
   //margin-top: 10px;
-  margin: 10px 0px auto;
+  margin: 10px 0 auto;
   width: 100%;
   height: 60px;
 `;
