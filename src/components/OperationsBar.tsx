@@ -50,7 +50,7 @@ const OperationsName = styled.div`
 //  text-align: center;
   float: left;
   border-bottom: solid 3px #555;
-  @import url("https://fonts.googleapis.com/css?family=Ubuntu:400|Roboto:400");
+ // @import url("https://fonts.googleapis.com/css?family=Ubuntu:400|Roboto:400");
 `;
 
 const OperationsBar = () => {
