@@ -39,7 +39,7 @@ const Cancel = styled.img`
     opacity: 0.6;
   }
 
-  z-index: 5;
+  z-index: 3;
 `;
 
 const ImageViewPage = () => {

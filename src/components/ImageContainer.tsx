@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import image from "../components/ch.png";
 import {useParams} from "react-router-dom";
 
 const DetailImageBox = styled.img`
