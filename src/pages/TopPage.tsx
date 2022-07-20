@@ -1,12 +1,17 @@
 import Header from "../components/Header";
 import OperationsBar from "../components/OperationsBar";
 import ImageGrid from "../components/ImageGrid";
+import {useEffect} from "react";
+import {ImageList} from "../gateway/httpClient";
 
 type TopPagePropsType = {
     setOperationName: string;
 }
 
 const TopPage = ({setOperationName}: TopPagePropsType) => {
+    useEffect(() =>{
+        ImageList()
+    },[])
     //document.body.style.backgroundColor = "#e5e5e5";
     document.body.style.backgroundColor = "#ffffff";
     return (
