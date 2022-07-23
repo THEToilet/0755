@@ -1,71 +1,69 @@
-import * as React from 'react';
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
+import * as React from "react";
+import ImageList from "@mui/material/ImageList";
+import ImageListItem from "@mui/material/ImageListItem";
+import { useEffect, useState } from "react";
+import { ImageResponse, ImagesListResponse } from "../type/API";
+import { HttpImageList, HttpImageListSize } from "../gateway/httpClient";
+import styled from "styled-components";
+import Pagination from "@mui/material/Pagination";
+import { Button } from "@mui/material";
+import { useImageListContext } from "../context/ImageListProvider";
 
 export default function StandardImageList() {
-    return (
-        <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
-            {itemData.map((item) => (
-                <ImageListItem key={item.img}>
-                    <img
-                        src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-                        srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                        alt={item.title}
-                        loading="lazy"
-                    />
-                </ImageListItem>
-            ))}
-        </ImageList>
-    );
-}
+  const [imageLists, setImageList] = useState<ImageResponse[]>([]);
+  const [imageListSize, setImageListSize] = useState<number>(0);
 
-const itemData = [
-    {
-        img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
-        title: 'Breakfast',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
-        title: 'Burger',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
-        title: 'Camera',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
-        title: 'Coffee',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
-        title: 'Hats',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
-        title: 'Honey',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6',
-        title: 'Basketball',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1518756131217-31eb79b20e8f',
-        title: 'Fern',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1597645587822-e99fa5d45d25',
-        title: 'Mushrooms',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1567306301408-9b74779a11af',
-        title: 'Tomato basil',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1471357674240-e1a485acb3e1',
-        title: 'Sea star',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
-        title: 'Bike',
-    },
-];
+  const [page, setPage] = useState(1);
+  useEffect(() => {
+    HttpImageListSize(setImageListSize);
+    // DEBUG
+    //HttpImageList(setImageList, page, setImageListContext);
+  }, [imageLists]);
+
+  //document.body.style.backgroundColor = "#e5e5e5";
+
+  const NewDiv = styled.div`
+    list-style: none;
+    //margin: 0px;
+    // text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    //align-content: space-around;
+    margin: 5px -20px;
+  `;
+
+  return (
+    <>
+      <ImageList
+        sx={{ width: 700, height: 1050 }}
+        cols={3}
+        rowHeight={200}
+        // Image同士の隙間
+        gap={2}
+        variant="standard"
+      >
+        {console.log("unko1")}
+        {console.log(imageLists)}
+        {(imageLists || []).map((item) => (
+          <ImageListItem key={item.image_id}>
+            <img
+              /*src={`${item.img}?w=164&h=164&fit=crop&auto=format`}*/
+              src={`https://pbs.twimg.com/media/${item.image_name}`}
+              srcSet={`https://pbs.twimg.com/media/${item.image_name}`}
+              alt={item.image_text}
+              loading="lazy"
+            />
+            {console.log("unko2")}
+            {console.log(`https://pbs.twimg.com/media/${item.image_name}`)}
+          </ImageListItem>
+        ))}
+      </ImageList>
+      <Pagination
+        count={imageListSize}
+        color="secondary"
+        onChange={(e, page) => setPage(page)}
+        page={page}
+      />
+    </>
+  );
+}

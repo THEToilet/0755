@@ -1,11 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './views/App';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./views/App";
+import { ImageListProvider } from "./context/ImageListProvider";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ImageListProvider>
+      <App />
+    </ImageListProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-
