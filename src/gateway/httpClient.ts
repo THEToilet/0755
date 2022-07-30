@@ -7,10 +7,11 @@ import {
 import React from "react";
 
 const testBaseURL = "http://localhost:8080";
-const productionBaseURL = "http://localhost:8080";
+const productionBaseURL = "http://192.168.2.125:8080";
 
 const client = axios.create({
-  baseURL: testBaseURL,
+  //baseURL: testBaseURL,
+  baseURL: productionBaseURL,
   responseType: "json",
   headers: {
     "Content-Type": "application/json",

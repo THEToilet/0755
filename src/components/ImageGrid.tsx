@@ -43,7 +43,6 @@ const ImageUl = styled.ul`
   @media print, screen and (min-width: 767px) {
     margin: 0 -20px;
   }
-  
    */
 `;
 
@@ -52,31 +51,37 @@ const ImageGrid = () => {
   const [imageListSize, setImageListSize] = useState<number>(0);
   const { imageListContext, setImageListContext } = useImageListContext();
 
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState<number>(
+    Number(localStorage.getItem("page"))
+  );
   useEffect(() => {
     HttpImageListSize(setImageListSize);
     HttpImageList(setImageList, page, setImageListContext);
     console.log("supperrr", imageLists);
+    localStorage.setItem("page", String(page));
   }, [page]);
+
   return (
     <>
+      <Pagination
+        count={imageListSize}
+        color="secondary"
+        onChange={(e, page) => {
+          setPage(page);
+        }}
+        page={page}
+      />
       <ImageUl>
         {(imageLists || []).map((image) => (
-          <ImageLi>
-            {<Image setImageSource={image} />}
-            {/*<img
-              src={`https://pbs.twimg.com/media/${image.image_name}`}
-              srcSet={`https://pbs.twimg.com/media/${image.image_name}`}
-              alt={image.image_text}
-              loading="lazy"
-            />*/}
-          </ImageLi>
+          <ImageLi>{<Image setImageSource={image} />}</ImageLi>
         ))}
       </ImageUl>
       <Pagination
         count={imageListSize}
         color="secondary"
-        onChange={(e, page) => setPage(page)}
+        onChange={(e, page) => {
+          setPage(page);
+        }}
         page={page}
       />
     </>
