@@ -2,11 +2,7 @@ import Header from "../components/Header";
 import OperationsBar from "../components/OperationsBar";
 import ImageGrid from "../components/ImageGrid";
 import { useEffect, useState } from "react";
-import { HttpImageList } from "../gateway/httpClient";
 import { ImageResponse, ImagesListResponse } from "../type/API";
-import StandardImageList from "../components/ImageList";
-import imageGrid from "../components/ImageGrid";
-import Pagination from "@mui/material/Pagination";
 import * as React from "react";
 
 type TopPagePropsType = {

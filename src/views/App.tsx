@@ -1,7 +1,6 @@
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import TopPage from "../pages/TopPage";
-import ImageViewPage from "../pages/ImageViewPage";
-import StandardImageList from "../components/ImageList";
+import ImageView from "../components/ImageView";
 
 function App() {
   return (
@@ -10,7 +9,7 @@ function App() {
         <Route exact path="/">
           <TopPage setOperationName={"SortByFavorites"} />
         </Route>
-        <Route exact path="/:id" component={ImageViewPage} />
+        <Route exact path="/:id" component={ImageView} />
       </Switch>
     </BrowserRouter>
   );

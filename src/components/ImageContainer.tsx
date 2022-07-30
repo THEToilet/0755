@@ -4,6 +4,7 @@ import { useImageListContext } from "../context/ImageListProvider";
 import { useState } from "react";
 import { Rating } from "@mui/material";
 import { ImageResponse } from "../type/API";
+import * as React from "react";
 
 const DetailImageBox = styled.img`
   height: 600px;
@@ -37,22 +38,20 @@ const InformationContainer = styled.div`
     height: 500px;
   }
 `;
+type ImageViewContainerPropsType = {
+  imageSource: ImageResponse;
+};
 
-const ImageViewContainer = () => {
+const ImageViewContainer = ({ imageSource }: ImageViewContainerPropsType) => {
   const [value, setValue] = useState<number | null>(2);
   const { imageListContext, setImageListContext } = useImageListContext();
-  const { id } = useParams<{ id: string }>();
-  //const name = process.env.PUBLIC_URL + `images/` + id;
-  //const name = window.location.origin + `/images/` + id;
-  console.log(id);
-  const imageInfo = getImageInfo(Number(id), imageListContext);
-  const name = "https://pbs.twimg.com/media/" + imageInfo.image_name;
+  const name = "https://pbs.twimg.com/media/" + imageSource.image_name;
   return (
     <>
       <DetailImageBox src={name} alt="unko" />
-      <h3 style={{ color: "white" }}>{imageInfo.image_id}</h3>
-      <h3 style={{ color: "white" }}>{imageInfo.image_name}</h3>
-      <h3 style={{ color: "white" }}>{imageInfo.image_text}</h3>
+      <h3 style={{ color: "white" }}>{imageSource.image_id}</h3>
+      <h3 style={{ color: "white" }}>{imageSource.image_name}</h3>
+      <h3 style={{ color: "white" }}>{imageSource.image_text}</h3>
       <Rating
         name="simple-controlled"
         value={value}
@@ -65,6 +64,7 @@ const ImageViewContainer = () => {
   );
 };
 
+/*
 const getImageInfo = (
   imageID: number,
   imageListContext: ImageResponse[]
@@ -89,5 +89,6 @@ const getImageInfo = (
   }
   return imageInfo;
 };
+ */
 
 export default ImageViewContainer;

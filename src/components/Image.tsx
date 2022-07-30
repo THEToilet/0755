@@ -1,12 +1,11 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { Rating } from "@mui/material";
-import { useState } from "react";
 import { ImageResponse } from "../type/API";
 import * as React from "react";
 
 type ImagePropsType = {
   setImageSource: ImageResponse;
+  setIsShowPopUp: React.Dispatch<React.SetStateAction<boolean>>;
+  setPopUpImageResponse: React.Dispatch<React.SetStateAction<ImageResponse>>;
 };
 
 const ImageBox = styled.img`
@@ -39,10 +38,12 @@ const MovieBox = styled.video`
   }
 `;
 
-const Image = ({ setImageSource }: ImagePropsType) => {
-  const [value, setValue] = useState<number | null>(2);
+const Image = ({
+  setImageSource,
+  setIsShowPopUp,
+  setPopUpImageResponse,
+}: ImagePropsType) => {
   //const name = process.env.PUBLIC_URL + "images/" + setImageSource;
-  const [isShowPopUp, setISShowPopUp] = useState<boolean>(false);
   const path = "/" + setImageSource.image_id;
   const imageTypeArray = setImageSource.image_name.split(".");
   const imageType = imageTypeArray[1];
@@ -52,46 +53,30 @@ const Image = ({ setImageSource }: ImagePropsType) => {
     <>
       <div className="image" />
       <div className="image-back" />
-      <Link to={path}>
-        {isImage ? (
-          <ImageBox
-            src={`https://pbs.twimg.com/media/${setImageSource.image_name}`}
-            srcSet={`https://pbs.twimg.com/media/${setImageSource.image_name}`}
-            alt={setImageSource.image_name}
-            loading="lazy"
-            onClick={() => {
-              setISShowPopUp(true);
-            }}
-          ></ImageBox>
-        ) : (
-          <MovieBox>
-            <source
-              src={`https://pbs.twimg.com/media/${setImageSource.image_name}`}
-              type={"video/" + imageType}
-              onClick={() => {
-                setISShowPopUp(true);
-              }}
-            ></source>
-            <p>{setImageSource.image_name}</p>
-          </MovieBox>
-        )}
-      </Link>
-      {isShowPopUp ? (
-        <>
-          <h3>UNKO</h3>
-        </>
+      {isImage ? (
+        <ImageBox
+          src={`https://pbs.twimg.com/media/${setImageSource.image_name}`}
+          srcSet={`https://pbs.twimg.com/media/${setImageSource.image_name}`}
+          alt={setImageSource.image_name}
+          loading="lazy"
+          onClick={() => {
+            setPopUpImageResponse(setImageSource);
+            setIsShowPopUp(true);
+          }}
+        ></ImageBox>
       ) : (
-        <></>
+        <MovieBox>
+          <source
+            src={`https://pbs.twimg.com/media/${setImageSource.image_name}`}
+            type={"video/" + imageType}
+            onClick={() => {
+              setPopUpImageResponse(setImageSource);
+              setIsShowPopUp(true);
+            }}
+          ></source>
+          <p>{setImageSource.image_name}</p>
+        </MovieBox>
       )}
-      {/*
-      <Rating
-        name="simple-controlled"
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
-      />
-        */}
     </>
   );
 };
